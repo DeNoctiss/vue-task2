@@ -49,6 +49,18 @@
       <audio id="noise4">
         <source src="@/sounds/4.mp3" type="audio/mp3" />
       </audio>
+      <audio id="noise5">
+        <source src="@/sounds/1.mp3" type="audio/mp3" />
+      </audio>
+      <audio id="noise6">
+        <source src="@/sounds/2.mp3" type="audio/mp3" />
+      </audio>
+      <audio id="noise7">
+        <source src="@/sounds/3.mp3" type="audio/mp3" />
+      </audio>
+      <audio id="noise8">
+        <source src="@/sounds/4.mp3" type="audio/mp3" />
+      </audio>
     </div>
   </div>
 </template>
@@ -70,11 +82,7 @@ export default {
       one: false,
       second: false,
       third: false,
-      fourty: false,
-      easy: false,
-      normal: false,
-      hard: false
-
+      fourty: false
     }
   },
   methods:{
@@ -116,34 +124,82 @@ export default {
     firstFlash(){
       this.one=true
       setTimeout(() => {
-        let audio = document.getElementById('noise1')
+        let audio
+        if(this.flash%2===0 && this.on===false){
+          audio = document.getElementById('noise1')
+        }
+        if(this.flash%2===1 && this.on===false){
+          audio = document.getElementById('noise5')
+        }
+        if(this.playerOrder.length%2===0 && this.on===true){
+          audio = document.getElementById('noise1')
+        }
+        if(this.playerOrder.length%2===1 && this.on===true){
+          audio = document.getElementById('noise5')
+        }
         audio.play()
         this.one=false
-      },400)
+      },300)
     },
     secondFlash(){
       this.second=true
       setTimeout(() => {
-        let audio = document.getElementById('noise2')
+        let audio
+        if(this.flash%2===0 && this.on===false){
+          audio = document.getElementById('noise2')
+        }
+        if(this.flash%2===1 && this.on===false){
+          audio = document.getElementById('noise6')
+        }
+        if(this.playerOrder.length%2===0 && this.on===true){
+          audio = document.getElementById('noise2')
+        }
+        if(this.playerOrder.length%2===1 && this.on===true){
+          audio = document.getElementById('noise6')
+        }
         audio.play()
         this.second=false
-      },400)
+      },300)
     },
     thirdFlash(){
       this.third=true
       setTimeout(() => {
-        let audio = document.getElementById('noise3')
+        let audio
+        if(this.flash%2===0 && this.on===false){
+          audio = document.getElementById('noise3')
+        }
+        if(this.flash%2===1 && this.on===false){
+          audio = document.getElementById('noise7')
+        }
+        if(this.playerOrder.length%2===0 && this.on===true){
+          audio = document.getElementById('noise3')
+        }
+        if(this.playerOrder.length%2===1 && this.on===true){
+          audio = document.getElementById('noise7')
+        }
         audio.play()
         this.third=false
-      },400)
+      },300)
     },
     fourFlash(){
       this.fourty=true
       setTimeout(() => {
-        let audio = document.getElementById('noise4')
+        let audio
+        if(this.flash%2===0 && this.on===false){
+          audio = document.getElementById('noise4')
+        }
+        if(this.flash%2===1 && this.on===false){
+          audio = document.getElementById('noise8')
+        }
+        if(this.playerOrder.length%2===0 && this.on===true){
+          audio = document.getElementById('noise4')
+        }
+        if(this.playerOrder.length%2===1 && this.on===true){
+          audio = document.getElementById('noise8')
+        }
         audio.play()
         this.fourty=false
-      },400)
+      },300)
     },
     firstClick(){
       if  (this.on){
